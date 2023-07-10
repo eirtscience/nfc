@@ -7,7 +7,7 @@ const nfcCard = require("nfccard-tool");
 
 const Say = require("say").Say;
 const say = new Say("darwin" || "win32" || "linux");
-
+//ACS ACR122U PICC Interface  device attached
 nfc.on("reader", (reader) => {
   console.log(`${reader.reader.name}  device attached`);
 
