@@ -8,6 +8,12 @@ const nfcCard = require("nfccard-tool");
 const Say = require("say").Say;
 const say = new Say("darwin" || "win32" || "linux");
 //ACS ACR122U PICC Interface  device attached
+
+const delay = async (v) =>
+  new Promise((r) => {
+    setTimeout(r, v);
+  });
+
 nfc.on("reader", (reader) => {
   console.log(`${reader.reader.name}  device attached`);
 
@@ -63,6 +69,8 @@ nfc.on("reader", (reader) => {
     let urlToWrite = `https://agape-studio.reunite.digital/`;
     // 1 - READ HEADER
     try {
+      say.speak("HOLD THE CARD");
+      await delay(800);
       await readCard({
         reader,
       });
@@ -188,7 +196,7 @@ async function ensureRecord({
     );
     if (hasWrittenSuccessfully) {
       console.log("ok Yo");
-      await say.speak("CHECK OK");
+      await say.speak("CARD DATA CHECKED, RELEASE CARD");
     }
   } else {
     console.log(
