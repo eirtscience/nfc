@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "read": "node reader.js",
+    "writer": "node index.js"
   },
   "keywords": [],
   "author": "Wong Lok",
   "license": "ISC",
   "dependencies": {
     "nfc-pcsc": "^0.8.1",
-    "nodemon": "^3.0.1"
+    "nfccard-tool": "^0.1.1",
+    "node-notifier": "^10.0.1",
+    "nodemon": "^3.0.1",
+    "say": "^0.16.0",
+    "yarn": "^1.22.19"
   }
 }
